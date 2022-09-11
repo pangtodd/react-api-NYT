@@ -1,5 +1,5 @@
 import topStoriesReducer from '../../reducers/top-stories-reducer';
-import * as c from '../../actions/ActionTypes';
+import * as c from './../../actions/ActionTypes';
 
 describe('topStoriesReducer', () => {
 
@@ -11,8 +11,8 @@ describe('topStoriesReducer', () => {
     error: null
   };
 
-  test('successfully getting top stories should change isLoaded to tru and update topStories', ()=>{
-    const topStories ="An Article";
+  test('successfully getting top stories should change isLoaded to true and update topStories', ()=>{
+    const topStories ="An article";
     action={
       type:c.GET_TOP_STORIES_SUCCESSS,
       topStories
@@ -32,7 +32,19 @@ describe('topStoriesReducer', () => {
       }
     ).toThrowError("There is no action matching null.");
   });
-
+  test('failing to get topStories should change isLoaded to true and add an error message', ()=> {
+    const error = "An error";
+    action ={
+      type: c.GET_TOP_STORIES_FAILURE,
+      error
+    };
+    expect(topStoriesReducer(initialState, action)).toEqual({
+      isLoaded: true,
+      topStories: [],
+      error: "an error"
+    });
+  });
+  
   test('requesting topStories should successfully change isLoaded from false to true', ()=> {
     action ={
       type: c.REQUEST_TOP_STORIES

@@ -33,7 +33,7 @@ describe('topStoriesReducer', () => {
     ).toThrowError("There is no action matching null.");
   });
   test('failing to get topStories should change isLoaded to true and add an error message', ()=> {
-    const error = "An error";
+    const error = "an error";
     action ={
       type: c.GET_TOP_STORIES_FAILURE,
       error
@@ -44,7 +44,7 @@ describe('topStoriesReducer', () => {
       error: "an error"
     });
   });
-  
+
   test('requesting topStories should successfully change isLoaded from false to true', ()=> {
     action ={
       type: c.REQUEST_TOP_STORIES

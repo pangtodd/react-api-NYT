@@ -1,4 +1,4 @@
-import * as actions from './../../actions';
+import * as actions from './../../actions'; 
 import * as c from './../../actions/ActionTypes';
 
 describe('top stories reducer actions', ()=> {
